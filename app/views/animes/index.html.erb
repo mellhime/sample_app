@@ -1,0 +1,10 @@
+<% provide(:title, 'My animes') %>
+<h1>My animes</h1>
+
+<ul class="animes">
+  <% @anime_list.each do |anime| %>
+    <li>
+      <%= link_to anime.name, anime %>
+    </li>
+  <% end %>
+</ul>
