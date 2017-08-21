@@ -1,5 +1,3 @@
-require 'open-uri'
-
 class AnimesController < ApplicationController
 
 	def show
@@ -25,10 +23,13 @@ class AnimesController < ApplicationController
 		end
 	end
 
-	def anime_search
-		url = 'https://www.w3schools.com/xml/note.xml'
-		doc  = Nokogiri::XML("<root><aliens><alien><name>Alf</name></alien></aliens></root>")
-		@result = doc.xpath("//name")
+	def destroy
+		Anime.find(params[:id]).destroy
+		flash[:success] = "Anime deleted."
+		redirect_to '/animes'
+	end
+
+	def search
 	end
 
 	private
@@ -36,4 +37,5 @@ class AnimesController < ApplicationController
 		def anime_params
 			params.require(:anime).permit(:name, :score, :progress)
 		end
+
 end

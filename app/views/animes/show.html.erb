@@ -1,20 +1,15 @@
 <% provide(:title, @anime.name) %>
-<div class="row">
-  <aside class="span4">
-    <section>
-      <h1>
-        <%= @anime.name %>
-      </h1>
-	  <table border="1">
-	   <tr>
-	    <th>Title</th>
-	    <th>Score</th>
-	   </tr>
-	   <tr>
-	    <td><%=@anime.name%></td>
-	    <td><%=@anime.score%></td>
-	  </tr>
-	 </table>
-    </section>
-  </aside>
-</div>
+
+<ul class="anime">
+    <h2>
+      <%= @anime.name %>
+    </h2>
+        <li>Score:
+      <%= @anime.score %>
+    </li>
+        <li>Progress:
+      <%= @anime.progress %>
+    </li>
+</ul>
+
+<%= link_to "Delete", delete_path, method: "delete" %>
